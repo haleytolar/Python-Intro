@@ -1,0 +1,19 @@
+import pickle
+
+recipe = {
+    "Ingredient Name": "Tea",
+    "Ingredients": ["Tea leaves", "Water", "Sugar"],
+    "Cooking Time": "5 minutes",
+    "Difficulty": "Easy"
+}
+
+with open("recipe_binary.bin", "wb") as file:
+    pickle.dump(recipe, file)
+
+with open("recipe_binary.bin", "wb") as file:
+    loaded_recipe = pickle.load(file)
+
+print("Recipe for:", loaded_recipe["Ingredient Name"])
+print("Ingredients:", ", ".join(loaded_recipe["Ingredients"]))
+print("Cooking Time:", loaded_recipe["Cooking Time"])
+print("Difficulty:", loaded_recipe["Difficulty"])
